@@ -1,0 +1,124 @@
+noremap ciC cl
+noremap caC cl
+noremap cC cl
+noremap cw ciw
+noremap cW ciW
+noremap cL cc
+noremap cs cis
+noremap cp cip
+noremap c{ ci{
+noremap c} ci{
+noremap c[ ci[
+noremap c] ci[
+noremap c< ci<
+noremap c> ci>
+noremap c) ci)
+" noremap caP
+" noremap ciP caP
+" noremap cP caP
+noremap ciD ggcG
+noremap caD ciD
+noremap cD ciD
+
+noremap diC dl
+noremap daC dl
+noremap dC dl
+noremap dw daw
+noremap dW daW
+noremap dL dd
+noremap ds das
+noremap dp dap
+noremap d{ da{
+noremap d} da{
+noremap d[ da[
+noremap d] da[
+noremap d< da<
+noremap d> da>
+noremap d) da)
+noremap daD ggdG
+noremap diD daD
+noremap dD daD
+
+noremap yiC yl
+noremap yaC yl
+noremap yC yl
+noremap yw yiw
+noremap yW yiW
+noremap yL yy
+noremap ys yis
+noremap yp yip
+noremap y{ yi{
+noremap y} yi{
+noremap y[ yi[
+noremap y] yi[
+noremap y< yi<
+noremap y> yi>
+noremap y) yi)
+" noremap yaP
+" noremap yiP yaP
+" noremap yP yaP
+noremap yiD ggyG
+noremap yaD yiD
+noremap yD yiD
+
+" Tete tata. Titi tute.
+
+noremap bw w
+noremap bW W
+noremap bL j0
+noremap bs )
+noremap bp }
+noremap b( f(
+noremap b) f(
+noremap b{ f{
+noremap b} f{
+noremap b[ f[
+noremap b] f[
+noremap b< f<
+noremap b> f>
+noremap bD :error_does_not_make_sense
+noremap Bw b
+noremap BW B
+noremap BL 0
+noremap Bs (
+noremap Bp {
+noremap B( F(
+noremap B) F(
+noremap B{ F{
+noremap B} F{
+noremap B[ F[
+noremap B] F[
+noremap B< F<
+noremap B> F<
+noremap BD gg
+noremap ew e
+noremap eW E
+noremap eL $
+noremap es )?[.?!]
+noremap ep }k
+noremap e( f)
+noremap e) f)
+noremap e{ f}
+noremap e} f}
+noremap e[ f]
+noremap e] f]
+noremap e< f>
+noremap e> f>
+noremap eD G
+noremap Ew ge
+noremap EW gE
+noremap EL k$
+noremap Es (?[.?!]
+noremap Ep {k
+noremap E( F)
+noremap E) F)
+noremap E{ F}
+noremap E} F}
+noremap E[ F]
+noremap E] F]
+noremap E< F>
+noremap E> F>
+noremap ED :error_does_not_make_sense
+" this es,ep,Es,Ep are inexact 
+
+noremap w :write<CR>

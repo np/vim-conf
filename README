@@ -1,0 +1,11 @@
+Here is my (Nicolas Pouillard) Vim configuration.
+
+This repo is supposed to be located at "~/.vim" and
+the rc file to linked at "~/.vimrc".
+
+I'm using these packages for ArchLinux:
+  * vim-fugitive
+  * vim-gnupg
+  * vim-zencoding
+
+Other packages comes from Vundle

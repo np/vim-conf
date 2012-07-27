@@ -1,0 +1,417 @@
+" Section: Vundle {{{1
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+"
+" original repos on github
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'wlangstroth/vim-haskell'
+Bundle 'np/vim-addon-agda'
+
+" Section: Options {{{1
+
+"For color issues, you may want to try:
+"set t_Co=256
+
+set modeline
+set modelines=5
+
+set tildeop
+
+" Spellcheck >7.x
+set spell
+
+set nobackup
+
+" Backup old title.
+let &titleold=getcwd()
+
+if version > 620
+
+" Activate antialias (mac)
+set antialias
+
+endif
+
+" draw line numbers before the line
+" set number
+
+" Copy indent from current line when starting a new line
+set autoindent
+
+" Reread when file changed outside
+" set autoread
+
+" Write if make, next, rewind, last, previous, stop, suspend, tag
+set autowrite
+
+" Adapt colors to a dark background
+set background=dark
+"set background=light
+"let g:solarized_termcolors=256
+let g:solarized_termcolors=16
+let g:solarized_style="dark"
+"let g:solarized_termtrans=1
+colorscheme solarized
+function! ToggleBackground()
+  if (g:solarized_style=="dark")
+    let g:solarized_style="light"
+    set background=light
+    colorscheme solarized
+  elseif (g:solarized_style=="light")
+    let g:solarized_style="no"
+    set background=dark
+    colorscheme default
+    " colorscheme desert
+  else
+    let g:solarized_style="dark"
+    set background=dark
+    colorscheme solarized
+  endif
+endfunction
+nmap <Leader>k :call ToggleBackground()<CR>
+
+
+" Smart backspace
+set bs=2
+set backspace=indent,eol,start
+
+" Showmatch
+" set showmatch
+
+" Browsing: same directory of the related buffer.
+set browsedir=buffer
+
+set ch=1
+
+" C indentation
+set cindent sw=2
+
+" :q ask to save change.
+set confirm
+
+" Copy indentation structure (tab, space)
+set copyindent
+
+" Compatible options
+set cpoptions=aBceFs
+
+" Cscope path
+set cscopeprg=/usr/bin/cscope
+
+" Unicode characters as one character
+set delcombine
+
+" Print special chars in hexa
+set display=lastline,uhex
+
+" Expand tab
+set expandtab
+
+" Formatting options (see <Leader>j)
+set formatprg=par\ j
+set formatoptions=tcroql12
+
+" g flag in substitute
+" set gdefault
+
+" GUI options
+" autoselect
+set guioptions+=a
+set guioptions+=A
+" icon
+set guioptions+=i
+" -menu
+set guioptions-=m
+" tearoff
+set guioptions-=T
+" console dialog
+set guioptions+=c
+" scrollbar
+set guioptions-=L
+set guioptions-=l
+set guioptions-=r
+set guioptions-=R
+
+" Higlight search
+set hlsearch
+
+" Keep buffers even if they are not visibles
+set hidden
+
+" History
+set history=100
+
+" Icon name is title's name
+set icon
+
+" Ignore case
+" set ignorecase
+
+" Incremental search
+set incsearch
+
+" Infer case
+" set infercase
+
+" Always a status line
+set laststatus=2
+
+" Show trailing white spaces, tabs and non-breakable spaces
+" in list mode an with the :list command.
+"  
+set listchars=tab:»·,trail:·,nbsp:∼
+set list
+
+" set selectmode=mouse,key
+" set mousemodel=popup      " extend
+" set keymodel=
+" set selection=inclusive " exclusive
+
+" Lazy redraw
+"set lazyredraw
+
+" Match pairs
+set matchpairs+="<:>"
+
+" Use of the mouse
+set mouse=
+
+" Focus follows mouse
+set mousefocus
+
+" Hide the pointer when characters are typed.
+set mousehide
+
+" Left mouse button extends selection
+set mousemodel=extend
+
+set nocompatible
+
+" Show line/column number
+set ruler
+
+" Shell
+set shell=/bin/zsh
+
+" Shell slash for win32
+set shellslash
+
+" Shirt round to shift width
+set shiftround
+
+" Indent width
+set shiftwidth=2
+
+" Abbreviation
+set shortmess="aoOtTI"
+
+" Showm command in status line
+set showcmd
+
+" Show full tag
+set showfulltag
+
+" Override ignorecase if pattern contains uppercase characters
+" set smartcase
+
+" Smart tabulation.
+set smarttab
+
+" Display current mode (Insert, Replace, None...)
+set smd
+
+set softtabstop=3
+
+" Status line
+set statusline=%<%f%=\ [%1*%M%*%n%R%H]\ %-19(%3l,%02c%03V,%p%%%)'%02b'
+
+" Lower priority
+set suffixes=.bak,~,.swp,.o,.obj,.cmo,.cma,.cmx,.cmi,.cmxa,.cmxs,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.old,.cm[oaxi],.cmxa,.bootstrap,.hi
+
+" Add suffixes when searching for a file
+set suffixesadd=.java,.c,.cxx,.h,.hxx,.cpp,.for,.f90,.f,.xml,.html,.py,.sh,.pl,.rb,.ml
+
+if has("syntax")
+" Syntax highlighting
+syntax on
+syn match Error "\s\+$"
+endif
+
+" Text width
+set textwidth=78
+
+" Title is titlestring
+set title
+
+set tabstop=8
+
+set ttyfast
+
+set ul=200
+
+" Virtual edit
+"set virtualedit=all
+
+" No beep at all.
+set vb t_vb=
+
+set visualbell
+
+set wc=<Tab>
+
+" Whichwrap
+" set whichwrap=<,>,[,],b,s,h,l,~
+
+" Wild menu
+set wildmenu
+
+" No Wrap
+set nowrap
+
+" Colorcolumn (cc)
+" set colorcolumn=+1
+highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
+
+" Fold highlight (default is ugly)
+highlight Folded guibg=darkgrey guifg=blue
+
+filetype indent on
+filetype plugin on
+
+" Section: My shortcuts {{{1
+
+map <BS> X
+map <DEL> x
+map , :w<CR>
+map z1 z=1<CR><CR>
+
+map \\  <ESC>A \<ESC>
+vmap \\  <ESC>:'<,'>s/$/ \\/<CR>:nohlsearch<CR>
+map ;;  <ESC>A;<ESC>
+vmap ;  <ESC>:'<,'>s/$/;/<CR>:nohlsearch<CR>
+
+nmap <> a<:<  >><ESC>4hi
+nmap <Leader>p :set invpaste<CR>
+nmap <Leader>b :make
+nmap <Leader>fr :set spelllang=fr<CR>
+nmap <Leader>en :set spelllang=en<CR>
+nmap <Leader>s  :set invspell<CR>
+" Look for VCS (git) conflict markers
+nmap <Leader>m /^[<=>\|]\{7}<CR>
+
+nmap <Leader>j :set formatprg=par\ j<CR>
+nmap <Leader>J :set formatprg=par<CR>
+
+" Section: My commands {{{1
+
+aug coding
+  au!
+
+  au BufEnter .todo.txt* setf gtd
+  au BufEnter .todo.txt* set nospell
+
+  au BufEnter	*.ll set syntax=lex
+  au BufNewFile	*.ll call CShell_New()
+
+  au BufEnter	*.yml call YamlMode()
+
+  au BufEnter	*form set textwidth=73
+  au BufEnter	*form set syntax=diff
+  au BufEnter	*message set syntax=diff
+
+  au BufEnter   *.ml{l,4,p4,ip4,y} set syntax=ocaml
+  au BufEnter   *.lml set syntax=ocaml
+  au BufEnter   *.do  set filetype=sh
+
+  au BufNewFile	*.sh call ShellNew()
+
+  au BufEnter	configure.ac set syntax=m4
+  au BufEnter	[mM]akefile set syntax=make
+  au BufEnter	[mM]akefile.am set syntax=automake
+  au BufEnter	ChangeLog* set syntax=ChangeLog
+  au BufEnter	*.prg set syntax=haskell
+
+  au BufEnter	*.{c,C,c{c,++,pp,xx}} call Brackets()
+  au BufLeave   *.{c,C,c{c,++,pp,xx}} call Unbrackets()
+
+  au BufEnter   *.{ml{,i,l,4,p4,ip4,y},lml,fl,ac,m4,sh,pl,pm,lhs,hs,agda,prg,conf,v,cim,p,mod,thm} set nospell
+  au BufEnter   PKGBUILD set nospell
+aug END
+
+function! DiffMode()
+  set syntax=off
+  set nospell
+endfun
+
+function! YamlMode()
+  setf yaml
+  set syntax=yaml
+  " set shiftwidth=4
+  set expandtab
+endfun
+
+function! Brackets()
+  imap {} 	{<CR> <BS><CR>}<Up><End>
+endfun
+
+function! Unbrackets()
+  iunmap {}
+endfun
+
+function! ShellNew()
+  0r ~/.vim/skel/shell.tpl
+  normal G
+endfun
+
+" Reread .vimrc and help files
+command! Reloadconf call Reloadconf()
+fun! Reloadconf()
+  silent source ~/.vimrc
+  silent helptags ~/.vim/doc
+  echo '.vimrc reloaded'
+endfun
+
+" Speedbar
+command! Speedbar call Speedbar()
+fun! Speedbar()
+  vsplit
+  Explore
+  vertical resize 20
+endfun
+
+" outline emacs file (TODO lists, ...)
+au BufEnter,BufNewFile,BufRead *  call FileTypeDetect() " FT yaml, diff
+fun! FileTypeDetect()
+  let l = getline(nextnonblank(1))
+  if l =~ '^---\s*\(!\||\|$\)'
+    call YamlMode()
+  elseif l =~ '^=== ' || l =~ '^------------------------------------' || l =~ '^Showing differences between' || l =~ '^{$' || l =~ "What's new in.*:" || l =~ "^[" || l =~ '^\(hunk\|binary\|move\|addfile\|rmfile\|adddir\|rmdir\) '
+    set syntax=diff
+  elseif l =~ '-\*-\soutline\s-\*-'
+    setf outline
+  elseif l =~ '^From: '
+    setf mail
+  elseif l =~ '(\*'
+    set syntax=ocaml
+  endif
+endfun
+
+" When editing a file, always jump to the last known cursor position.
+" Don't do it when the position is invalid or when inside an event handler
+" (happens when dropping a file on gvim).
+autocmd BufReadPost *
+\ if line("'\"") > 0 && line("'\"") <= line("$") |
+\   exe "normal g`\"" |
+\ endif
+
+" Section: Global variables {{{1
+
+" <Leader> and <LocalLeader>
+let g:mapleader = "\\"
+let g:maplocalleader = "\\" " was ||
